@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Казахская этнология и мировые языки</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Unbounded:wght@300;500;700&family=Noto+Serif:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #0b0f0a;
+  --surface: #111608;
+  --card:    #161c0f;
+  --border:  rgba(162,196,72,0.18);
+  --green:   #a2c448;
+  --lime:    #c8e85a;
+  --gold:    #d4a832;
+  --rust:    #b04e1c;
+  --sky:     #5ab4c8;
+  --text:    #e8ead4;
+  --muted:   #7a8a5a;
+  --dim:     #3a4a2a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Noto Serif',Georgia,serif;
+  font-weight:300;
+  line-height:1.85;
+  overflow-x:hidden;
+}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:5rem 2rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(162,196,72,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 20%, rgba(212,168,50,0.06) 0%, transparent 60%);
+}
+.hero-pattern{
+  position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(60deg,  transparent, transparent 40px, rgba(162,196,72,0.03) 40px, rgba(162,196,72,0.03) 41px),
+    repeating-linear-gradient(-60deg, transparent, transparent 40px, rgba(162,196,72,0.03) 40px, rgba(162,196,72,0.03) 41px);
+}
+.hero-num{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(5rem,15vw,12rem);
+  font-weight:700;
+  color:rgba(162,196,72,0.05);
+  position:absolute;
+  bottom:-1rem;right:-1rem;
+  line-height:1;
+  pointer-events:none;
+}
+.hero-tag{
+  font-family:'Unbounded',sans-serif;
+  font-size:0.65rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:2rem;
+  position:relative;z-index:1;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.5rem,6vw,5.5rem);
+  font-weight:300;
+  text-align:center;
+  line-height:1.1;
+  position:relative;z-index:1;
+  color:var(--text);
+}
+.hero-title strong{
+  font-weight:700;
+  color:var(--lime);
+  font-style:italic;
+}
+.hero-sub{
+  margin-top:1.5rem;
+  font-family:'Unbounded',sans-serif;
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-align:center;
+  position:relative;z-index:1;
+}
+.hero-divider{
+  width:1px;height:60px;
+  background:linear-gradient(to bottom,var(--green),transparent);
+  margin:2.5rem auto 0;
+  position:relative;z-index:1;
+}
+
+/* ─── NAV ─── */
+nav{
+  position:sticky;top:0;
+  background:rgba(11,15,10,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  z-index:200;
+  padding:0 2rem;
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;
+  display:flex;align-items:center;gap:0.3rem;
+  overflow-x:auto;scrollbar-width:none;
+  padding:0.7rem 0;
+}
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-family:'Unbounded',sans-serif;
+  font-size:0.58rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  padding:0.4rem 0.8rem;
+  border:1px solid transparent;
+  border-radius:2px;
+  transition:color 0.2s,border-color 0.2s;
+}
+nav a:hover{color:var(--lime);border-color:var(--border)}
+
+/* ─── LAYOUT ─── */
+.container{max-width:1140px;margin:0 auto;padding:0 2rem}
+section{padding:7rem 0;border-bottom:1px solid var(--border)}
+section:last-of-type{border:none}
+
+.sec-tag{
+  font-family:'Unbounded',sans-serif;
+  font-size:0.58rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:1rem;
+  display:flex;align-items:center;gap:0.8rem;
+}
+.sec-tag::before{
+  content:'';
+  width:24px;height:1px;
+  background:var(--green);
+}
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4vw,3.5rem);
+  font-weight:600;
+  line-height:1.15;
+  margin-bottom:0.4rem;
+  color:var(--text);
+}
+.sec-num{
+  font-family:'Unbounded',sans-serif;
+  font-size:0.6rem;
+  color:var(--dim);
+  letter-spacing:0.1em;
+  margin-bottom:2.5rem;
+}
+h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;
+  font-weight:600;
+  color:var(--lime);
+  margin:3rem 0 1rem;
+}
+p{margin-bottom:1.2rem;max-width:72ch}
+.lead{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;
+  font-style:italic;
+  color:rgba(232,234,212,0.7);
+  line-height:1.7;
+  margin-bottom:2.5rem;
+  max-width:60ch;
+}
+
+/* ─── DIAGRAMS ─── */
+.dg{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:2.5rem 2rem;
+  margin:3rem 0;
+  overflow-x:auto;
+}
+.dg-title{
+  font-family:'Unbounded',sans-serif;
+  font-size:0.6rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-align:center;
+  margin-bottom:2rem;
+}
+svg{display:block;margin:0 auto}
+
+/* ─── CARDS ─── */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin:2.5rem 0;
+}
+.card{
+  background:var(--card);
+  padding:2rem;
+  transition:background 0.2s;
+}
+.card:hover{background:rgba(162,196,72,0.06)}
+.card-icon{
+  font-size:1.6rem;
+  margin-bottom:0.8rem;
+}
+.card-h{
+  font-family:'Unbounded',sans-serif;
+  font-size:0.72rem;
+  font-weight:500;
+  letter-spacing:0.05em;
+  color:var(--lime);
+  margin-bottom:0.7rem;
+  text-transform:uppercase;
+}
+.card-t{font-size:0.88rem;color:rgba(232,234,212,0.65);line-height:1.65}
+
+/* ─── TABLE ─── */
+.tbl{width:100%;border-collapse:collapse;font-size:0.88rem;margin:2rem 0}
+.tbl th{
+  background:rgba(162,196,72,0.1);
+  color:var(--lime);
+  font-family:'Unbounded',sans-serif;
+  font-size:0.58rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:0.9rem 1.2rem;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+}
+.tbl td{
+  padding:0.85rem 1.2rem;
+  border-bottom:1px solid rgba(162,196,72,0.07);
+  vertical-align:top;
+  color:rgba(232,234,212,0.8);
+}
+.tbl tr:hover td{background:rgba(162,196,72,0.04)}
+
+/* ─── TIMELINE ─── */
+.tl{position:relative;padding-left:3rem;margin:3rem 0}
+.tl::before{
+  content:'';
+  position:absolute;left:0.5rem;top:0;bottom:0;
+  width:1px;
+  background:linear-gradient(to bottom,var(--green),var(--gold),var(--rust));
+}
+.tl-item{
+  position:relative;margin-bottom:2.5rem;
+  opacity:0;transform:translateX(-16px);
+  transition:opacity 0.5s,transform 0.5s;
+}
+.tl-item.vis{opacity:1;transform:none}
+.tl-dot{
+  position:absolute;left:-2.75rem;top:0.45rem;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 0 3px rgba(162,196,72,0.2);
+}
+.tl-yr{
+  font-family:'Unbounded',sans-serif;
+  font-size:0.62rem;letter-spacing:0.08em;
+  color:var(--green);margin-bottom:0.3rem;
+}
+.tl-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:600;
+  margin-bottom:0.35rem;color:var(--text);
+}
+.tl-t{font-size:0.88rem;color:rgba(232,234,212,0.6);max-width:60ch}
+
+/* ─── BAR ─── */
+.bars{display:flex;align-items:flex-end;gap:10px;height:180px;position:relative;padding-bottom:2rem}
+.bars::after{
+  content:'';position:absolute;
+  bottom:32px;left:0;right:0;height:1px;
+  background:var(--border);
+}
+.bc{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.bv{font-family:'Unbounded',sans-serif;font-size:0.6rem;color:var(--lime)}
+.b{
+  width:100%;
+  border-radius:1px 1px 0 0;
+  min-height:4px;
+  background:linear-gradient(to top,var(--green),var(--lime));
+  transition:opacity 0.2s;
+}
+.b:hover{opacity:0.7}
+.bl{
+  font-family:'Unbounded',sans-serif;
+  font-size:0.52rem;letter-spacing:0.04em;
+  text-transform:uppercase;color:var(--muted);
+  text-align:center;line-height:1.3;margin-top:4px;
+}
+
+/* ─── STACKED BAR ─── */
+.sbr{display:flex;align-items:center;gap:1rem;margin-bottom:0.7rem}
+.sbl{
+  font-family:'Unbounded',sans-serif;
+  font-size:0.58rem;letter-spacing:0.05em;text-transform:uppercase;
+  color:var(--muted);width:130px;flex-shrink:0;text-align:right;
+}
+.sbtr{
+  flex:1;height:26px;
+  background:rgba(162,196,72,0.05);
+  display:flex;border-radius:1px;overflow:hidden;
+}
+.sbs{
+  height:100%;display:flex;align-items:center;
+  justify-content:center;
+  font-family:'Unbounded',sans-serif;
+  font-size:0.52rem;color:rgba(0,0,0,0.7);
+  letter-spacing:0.03em;overflow:hidden;
+  transition:opacity 0.2s;
+}
+.sbs:hover{opacity:0.8}
+
+/* ─── FLOW ─── */
+.flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:0;justify-content:center;margin:2rem 0}
+.fb{
+  background:var(--dim);
+  color:var(--text);
+  padding:1rem 1.2rem;
+  font-family:'Unbounded',sans-serif;
+  font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;
+  text-align:center;min-width:110px;flex-shrink:0;
+}
+.fb sub{
+  display:block;font-family:'Noto Serif',serif;
+  font-size:0.65rem;text-transform:none;letter-spacing:0;
+  opacity:0.6;margin-top:3px;
+}
+.fb.g{background:rgba(162,196,72,0.2);color:var(--lime)}
+.fb.gold{background:rgba(212,168,50,0.2);color:var(--gold)}
+.fb.sky{background:rgba(90,180,200,0.15);color:var(--sky)}
+.fa{display:flex;align-items:center;padding:0 4px;color:var(--green);font-size:1rem}
+@media(max-width:650px){
+  .flow{flex-direction:column}
+  .fa{transform:rotate(90deg)}
+  .two-col{grid-template-columns:1fr!important}
+}
+
+/* ─── TWO COL ─── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+
+/* ─── QUOTE ─── */
+blockquote{
+  border-left:2px solid var(--green);
+  margin:2.5rem 0;
+  padding:1.5rem 2rem;
+  background:rgba(162,196,72,0.04);
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1.2rem;
+  line-height:1.7;
+  color:rgba(232,234,212,0.85);
+}
+blockquote cite{
+  display:block;
+  font-family:'Unbounded',sans-serif;
+  font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;
+  font-style:normal;color:var(--muted);margin-top:0.8rem;
+}
+
+/* ─── PILL ─── */
+.pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin:1.5rem 0}
+.pill{
+  background:rgba(162,196,72,0.1);
+  border:1px solid rgba(162,196,72,0.25);
+  color:var(--lime);
+  padding:0.3rem 0.9rem;
+  font-family:'Unbounded',sans-serif;
+  font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;
+  border-radius:100px;
+}
+
+/* ─── LEGEND ─── */
+.leg{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1rem}
+.li{display:flex;align-items:center;gap:0.5rem;font-family:'Unbounded',sans-serif;font-size:0.58rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
+.ld{width:10px;height:10px;border-radius:1px;flex-shrink:0}
+
+/* ─── SOURCES ─── */
+#sources{background:var(--surface)}
+#sources h2{color:var(--green)}
+.src-list{list-style:none;counter-reset:s;margin:1.5rem 0}
+.src-list li{
+  counter-increment:s;
+  display:flex;gap:1.2rem;
+  padding:0.9rem 0;
+  border-bottom:1px solid var(--border);
+  font-size:0.87rem;line-height:1.6;
+  color:rgba(232,234,212,0.6);
+}
+.src-list li::before{
+  content:counter(s,decimal-leading-zero);
+  font-family:'Unbounded',sans-serif;
+  font-size:0.6rem;color:var(--green);
+  flex-shrink:0;padding-top:3px;width:2rem;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:#060806;
+  color:var(--dim);
+  text-align:center;
+  padding:2rem;
+  font-family:'Unbounded',sans-serif;
+  font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;
+}
+
+/* ─── HIGHLIGHT ─── */
+mark{
+  background:rgba(162,196,72,0.15);
+  color:var(--lime);
+  padding:0.1em 0.3em;
+  border-radius:2px;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-num">7–10</div>
+
+  <p class="hero-tag">Семинары по этнологии и языкознанию</p>
+  <h1 class="hero-title">Языки. Этнос.<br><strong>Степная цивилизация.</strong></h1>
+  <p class="hero-sub">Темы 7–10 &nbsp;·&nbsp; Казахская этнология &nbsp;·&nbsp; Мировые языки</p>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#t7">7 — Мировые языки</a>
+    <a href="#t8">8 — Казахский этнос</a>
+    <a href="#t9">9 — Кочевая цивилизация</a>
+    <a href="#t10">10 — Этнология Казахстана</a>
+    <a href="#sources">Источники</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ТЕМА 7: МИРОВЫЕ ЯЗЫКИ -->
+<!-- ══════════════════════════════════════════ -->
+<section id="t7">
+<div class="container">
+  <p class="sec-tag">Семинар · Тема 7</p>
+  <h2>Мировые языки и их классификация</h2>
+  <p class="sec-num">Семинарское занятие</p>
+  <p class="lead">Языки мира — живые памятники истории человеческих культур. Их классификация позволяет реконструировать пути миграций, культурные контакты и цивилизационные связи.</p>
+
+  <p>На сегодняшний день в мире насчитывается от <mark>6 000 до 7 000 живых языков</mark> (по разным методологиям подсчёта). Половина из них находится под угрозой исчезновения. Лингвистика разработала несколько систем классификации языков, каждая из которых отражает разный исследовательский угол зрения.</p>
+
+  <!-- Генеалогическая классификация -->
+  <h3>1. Генеалогическая классификация</h3>
+  <p>Группирует языки по происхождению — по принципу родства, восходящего к общему праязыку. Основной инструмент — сравнительно-историческое языкознание.</p>
+
+  <div class="dg">
+    <p class="dg-title">Крупнейшие языковые семьи мира — число носителей (млн чел., оценки)</p>
+    <div class="bars" style="height:200px">
+      <div class="bc">
+        <div class="bv">1500</div>
+        <div class="b" style="height:190px"></div>
+        <div class="bl">Индо­европ.</div>
+      </div>
+      <div class="bc">
+        <div class="bv">1400</div>
+        <div class="b" style="height:178px;background:linear-gradient(to top,var(--gold),#f0d060)"></div>
+        <div class="bl">Сино­тибет.</div>
+      </div>
+      <div class="bc">
+        <div class="bv">500</div>
+        <div class="b" style="height:63px;background:linear-gradient(to top,var(--sky),#8ad4e8)"></div>
+        <div class="bl">Афро­азиат.</div>
+      </div>
+      <div class="bc">
+        <div class="bv">380</div>
+        <div class="b" style="height:48px;background:linear-gradient(to top,#c85ab4,#e88ad4)"></div>
+        <div class="bl">Нигер-конг.</div>
+      </div>
+      <div class="bc">
+        <div class="bv">200</div>
+        <div class="b" style="height:25px;background:linear-gradient(to top,var(--rust),#d07840)"></div>
+        <div class="bl">Австронез.</div>
+      </div>
+      <div class="bc">
+        <div class="bv">170</div>
+        <div class="b" style="height:22px;background:linear-gradient(to top,#4a8a4a,#8ac88a)"></div>
+        <div class="bl">Тюркские</div>
+      </div>
+      <div class="bc">
+        <div class="bv">85</div>
+        <div class="b" style="height:11px;background:linear-gradient(to top,#8a4a8a,#b87ab8)"></div>
+        <div class="bl">Дравидийск.</div>
+      </div>
+      <div class="bc">
+        <div class="bv">75</div>
+        <div class="b" style="height:9px;background:linear-gradient(to top,#4a6a8a,#7aaab8)"></div>
+        <div class="bl">Монгольск.</div>
+      </div>
+    </div>
+    <p style="font-size:0.72rem;color:var(--muted);margin-top:0.5rem">* Индоевропейская семья: германские, романские, славянские, индоиранские и др. подгруппы</p>
+  </div>
+
+  <!-- SVG: Тюркская семья -->
+  <div class="dg">
+    <p class="dg-title">Тюркская языковая семья: основные ветви и языки</p>
+    <svg viewBox="0 0 720 340" width="100%" style="max-width:720px">
+      <defs>
+        <marker id="ar" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L6,3 z" fill="rgba(162,196,72,0.5)"/>
+        </marker>
+      </defs>
+      <!-- Root -->
+      <rect x="285" y="10" width="150" height="44" rx="2" fill="rgba(162,196,72,0.2)" stroke="#a2c448" stroke-width="1.5"/>
+      <text x="360" y="29" text-anchor="middle" fill="#c8e85a" font-family="'Unbounded',sans-serif" font-size="8" font-weight="500" letter-spacing="1">ПРАТЮРКСКИЙ</text>
+      <text x="360" y="46" text-anchor="middle" fill="rgba(200,232,90,0.5)" font-family="'Noto Serif',serif" font-size="8">общий предок</text>
+
+      <!-- Branch lines from root -->
+      <line x1="360" y1="54" x2="360" y2="75" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <line x1="80" y1="75" x2="640" y2="75" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+
+      <!-- Branches -->
+      <!-- Oguz -->
+      <line x1="100" y1="75" x2="100" y2="100" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <rect x="40" y="100" width="120" height="38" rx="2" fill="rgba(212,168,50,0.15)" stroke="rgba(212,168,50,0.4)" stroke-width="1"/>
+      <text x="100" y="116" text-anchor="middle" fill="#d4a832" font-family="'Unbounded',sans-serif" font-size="7" letter-spacing="0.5">ОГУЗСКАЯ</text>
+      <text x="100" y="130" text-anchor="middle" fill="rgba(212,168,50,0.5)" font-family="'Noto Serif',serif" font-size="7">ветвь</text>
+      <!-- Oguz langs -->
+      <line x1="100" y1="138" x2="100" y2="155" stroke="rgba(212,168,50,0.3)" stroke-width="1"/>
+      <line x1="35" y1="155" x2="165" y2="155" stroke="rgba(212,168,50,0.3)" stroke-width="1"/>
+      <line x1="45" y1="155" x2="45" y2="168" stroke="rgba(212,168,50,0.3)" stroke-width="1"/>
+      <line x1="100" y1="155" x2="100" y2="168" stroke="rgba(212,168,50,0.3)" stroke-width="1"/>
+      <line x1="155" y1="155" x2="155" y2="168" stroke="rgba(212,168,50,0.3)" stroke-width="1"/>
+      <rect x="10" y="168" width="70" height="28" rx="2" fill="rgba(212,168,50,0.1)" stroke="rgba(212,168,50,0.3)"/>
+      <text x="45" y="186" text-anchor="middle" fill="#d4a832" font-family="'Noto Serif',serif" font-size="8">Турецкий</text>
+      <rect x="65" y="168" width="70" height="28" rx="2" fill="rgba(212,168,50,0.1)" stroke="rgba(212,168,50,0.3)"/>
+      <text x="100" y="186" text-anchor="middle" fill="#d4a832" font-family="'Noto Serif',serif" font-size="8">Азербайдж.</text>
+      <rect x="120" y="168" width="70" height="28" rx="2" fill="rgba(212,168,50,0.1)" stroke="rgba(212,168,50,0.3)"/>
+      <text x="155" y="186" text-anchor="middle" fill="#d4a832" font-family="'Noto Serif',serif" font-size="8">Туркменск.</text>
+
+      <!-- Kipchak -->
+      <line x1="280" y1="75" x2="280" y2="100" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <rect x="215" y="100" width="130" height="38" rx="2" fill="rgba(162,196,72,0.2)" stroke="rgba(162,196,72,0.5)" stroke-width="1.5"/>
+      <text x="280" y="116" text-anchor="middle" fill="#a2c448" font-family="'Unbounded',sans-serif" font-size="7" letter-spacing="0.5">КЫПЧАКСКАЯ</text>
+      <text x="280" y="130" text-anchor="middle" fill="rgba(162,196,72,0.5)" font-family="'Noto Serif',serif" font-size="7">ветвь</text>
+      <line x1="280" y1="138" x2="280" y2="155" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <line x1="210" y1="155" x2="350" y2="155" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <line x1="220" y1="155" x2="220" y2="168" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <line x1="280" y1="155" x2="280" y2="168" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <line x1="340" y1="155" x2="340" y2="168" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <rect x="190" y="168" width="60" height="28" rx="2" fill="rgba(162,196,72,0.15)" stroke="rgba(162,196,72,0.4)"/>
+      <text x="220" y="186" text-anchor="middle" fill="#c8e85a" font-family="'Noto Serif',serif" font-size="8" font-weight="bold">Казахский</text>
+      <rect x="252" y="168" width="56" height="28" rx="2" fill="rgba(162,196,72,0.1)" stroke="rgba(162,196,72,0.3)"/>
+      <text x="280" y="186" text-anchor="middle" fill="#a2c448" font-family="'Noto Serif',serif" font-size="8">Кыргызский</text>
+      <rect x="310" y="168" width="60" height="28" rx="2" fill="rgba(162,196,72,0.1)" stroke="rgba(162,196,72,0.3)"/>
+      <text x="340" y="186" text-anchor="middle" fill="#a2c448" font-family="'Noto Serif',serif" font-size="8">Татарский</text>
+
+      <!-- Siberian -->
+      <line x1="460" y1="75" x2="460" y2="100" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <rect x="400" y="100" width="120" height="38" rx="2" fill="rgba(90,180,200,0.12)" stroke="rgba(90,180,200,0.35)" stroke-width="1"/>
+      <text x="460" y="116" text-anchor="middle" fill="#5ab4c8" font-family="'Unbounded',sans-serif" font-size="7" letter-spacing="0.5">СИБИРСКАЯ</text>
+      <text x="460" y="130" text-anchor="middle" fill="rgba(90,180,200,0.5)" font-family="'Noto Serif',serif" font-size="7">ветвь</text>
+      <line x1="460" y1="138" x2="460" y2="168" stroke="rgba(90,180,200,0.3)" stroke-width="1"/>
+      <rect x="425" y="168" width="70" height="28" rx="2" fill="rgba(90,180,200,0.1)" stroke="rgba(90,180,200,0.3)"/>
+      <text x="460" y="186" text-anchor="middle" fill="#5ab4c8" font-family="'Noto Serif',serif" font-size="8">Якутский</text>
+
+      <!-- Chuvash -->
+      <line x1="610" y1="75" x2="610" y2="100" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <rect x="550" y="100" width="120" height="38" rx="2" fill="rgba(176,78,28,0.12)" stroke="rgba(176,78,28,0.35)" stroke-width="1"/>
+      <text x="610" y="116" text-anchor="middle" fill="#c86a40" font-family="'Unbounded',sans-serif" font-size="7" letter-spacing="0.5">БУЛГАРСКАЯ</text>
+      <text x="610" y="130" text-anchor="middle" fill="rgba(176,78,28,0.5)" font-family="'Noto Serif',serif" font-size="7">ветвь</text>
+      <line x1="610" y1="138" x2="610" y2="168" stroke="rgba(176,78,28,0.3)" stroke-width="1"/>
+      <rect x="575" y="168" width="70" height="28" rx="2" fill="rgba(176,78,28,0.1)" stroke="rgba(176,78,28,0.3)"/>
+      <text x="610" y="186" text-anchor="middle" fill="#c86a40" font-family="'Noto Serif',serif" font-size="8">Чувашский</text>
+
+      <!-- Label: Казахский highlighted -->
+      <rect x="155" y="220" width="130" height="24" rx="12" fill="rgba(162,196,72,0.2)" stroke="#a2c448" stroke-width="1"/>
+      <text x="220" y="236" text-anchor="middle" fill="#c8e85a" font-family="'Unbounded',sans-serif" font-size="7" letter-spacing="0.5">★ КАЗАХСКИЙ ЯЗЫК</text>
+    </svg>
+  </div>
+
+  <!-- Типологическая классификация -->
+  <h3>2. Типологическая (морфологическая) классификация</h3>
+  <p>Группирует языки по способу образования слов и выражения грамматических значений — независимо от происхождения.</p>
+
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th>Тип</th>
+        <th>Характеристика</th>
+        <th>Примеры языков</th>
+        <th>Казахский язык</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong style="color:var(--lime)">Изолирующий</strong></td>
+        <td>Слова не изменяются; грамматика — через порядок слов</td>
+        <td>Китайский, вьетнамский</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--gold)">Агглютинативный</strong></td>
+        <td>Значения выражаются цепочкой аффиксов, каждый несёт одну функцию</td>
+        <td>Казахский, турецкий, финский, японский</td>
+        <td><strong style="color:var(--lime)">✓ Да</strong></td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--sky)">Флективный</strong></td>
+        <td>Окончания совмещают несколько грамматических значений</td>
+        <td>Русский, латынь, арабский</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--rust)">Инкорпорирующий</strong></td>
+        <td>Предложение = одно сложное слово</td>
+        <td>Чукотский, языки индейцев</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <blockquote>
+    Казахский язык — классический образец агглютинативного строя: слово «үйлерімізден» (из наших домов) состоит из корня «үй» + 4 последовательных суффикса, каждый с чёткой функцией.
+    <cite>— принцип агглютинации в тюркских языках</cite>
+  </blockquote>
+
+  <!-- Ареальная классификация -->
+  <h3>3. Ареальная классификация и языковые союзы</h3>
+  <p>Языки, длительно контактирующие на одной территории, приобретают общие черты независимо от родства. Такие ареалы называются <mark>языковыми союзами</mark> (Sprachbund).</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🌍</div>
+      <div class="card-h">Балканский союз</div>
+      <div class="card-t">Греческий, болгарский, румынский, албанский — разные семьи, но общие черты: постпозитивный артикль, слияние родительного и дательного падежей.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏔️</div>
+      <div class="card-h">Кавказский союз</div>
+      <div class="card-t">Картвельские, нахско-дагестанские, абхазо-адыгские языки и их соседи разделяют фонологические и морфологические черты.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌾</div>
+      <div class="card-h">Евразийский степной ареал</div>
+      <div class="card-t">Тюркские, монгольские и тунгусо-маньчжурские языки — гипотетическая алтайская макросемья или результат длительного контакта в степи.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌏</div>
+      <div class="card-h">Юго-Восточная Азия</div>
+      <div class="card-t">Тайские, вьетнамский, кхмерский — разные семьи, схожий тоновый строй и аналитическая грамматика благодаря многовековому контакту.</div>
+    </div>
+  </div>
+
+  <!-- Вопросы семинара -->
+  <h3>Вопросы для семинарского обсуждения</h3>
+  <div class="dg">
+    <p class="dg-title">Схема: Подходы к изучению языковой классификации</p>
+    <div class="flow">
+      <div class="fb g">Генеалог.<sub>происхождение от праязыка</sub></div>
+      <div class="fa">+</div>
+      <div class="fb gold">Типологич.<sub>морфологический строй</sub></div>
+      <div class="fa">+</div>
+      <div class="fb sky">Ареальная<sub>контактное взаимодействие</sub></div>
+      <div class="fa">→</div>
+      <div class="fb" style="background:rgba(162,196,72,0.25);color:var(--lime)">Полная картина<sub>языковой системы мира</sub></div>
+    </div>
+  </div>
+  <div class="pills">
+    <span class="pill">Что такое языковая семья?</span>
+    <span class="pill">Чем праязык отличается от письменного памятника?</span>
+    <span class="pill">Место казахского в тюркской семье</span>
+    <span class="pill">Языки-изоляты: баскский, шумерский</span>
+    <span class="pill">Угроза исчезновения языков</span>
+    <span class="pill">ЮНЕСКО и охрана языков</span>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ТЕМА 8: КАЗАХСКИЙ ЭТНОС -->
+<!-- ══════════════════════════════════════════ -->
+<section id="t8">
+<div class="container">
+  <p class="sec-tag">Лекция · Тема 8</p>
+  <h2>Формирование и развитие казахского этноса</h2>
+  <p class="sec-num">Лекционное занятие</p>
+  <p class="lead">Казахский этнос — результат многовекового синтеза племён евразийской степи. Его формирование было завершено в XV–XVI вв., но корни уходят к сакским, гуннским, тюркским и монгольским эпохам.</p>
+
+  <!-- Этапы формирования -->
+  <h3>Этапы этногенеза казахского народа</h3>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-yr">III тыс. до н.э. — I тыс. до н.э.</div>
+      <div class="tl-h">Степная бронза и ранние кочевники</div>
+      <div class="tl-t">Андроновская культура и культура евразийских степей. Индоевропейские и ранние тюркоидные элементы. Переход к пастбищно-кочевому скотоводству как базовой форме хозяйства.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-yr">VIII–III вв. до н.э.</div>
+      <div class="tl-h">Сакско-скифский мир</div>
+      <div class="tl-t">Саки, массагеты, исседоны — ираноязычные и тюркоидные номады. Высокая культура: «звериный стиль», золото степи, военная демократия. Саки как прямые предшественники тюркских племён на территории Казахстана.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-yr">III в. до н.э. — V в. н.э.</div>
+      <div class="tl-h">Хунны, усуни, канглы</div>
+      <div class="tl-t">Гунно-сарматская эпоха. Усуни в Семиречье и канглы (кангюй) в Приаралье — непосредственные предки кыпчакско-казахских племён. Первые прото-тюркские государственные объединения.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-yr">VI–X вв. н.э.</div>
+      <div class="tl-h">Тюркские каганаты</div>
+      <div class="tl-t">Первый и Второй Тюркский каганат, Западнотюркский каганат, Тюргеши, Карлуки. Тюркизация языкового пространства степи. Рунические памятники — первые письменные источники о тюрках-степняках.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-yr">X–XIII вв.</div>
+      <div class="tl-h">Кыпчакская степь и Дешт-и Кыпчак</div>
+      <div class="tl-t">«Половецкая степь» — господство кыпчакских (половецких) племён от Иртыша до Дуная. Кыпчаки — ядро будущего казахского народа. Принятие ислама частью кочевой элиты.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-yr">XIII–XIV вв.</div>
+      <div class="tl-h">Монгольское завоевание и Золотая Орда</div>
+      <div class="tl-t">Нашествие Чингисхана (1219–1224) коренным образом перестроило политическое пространство. Золотая Орда интегрировала кыпчаков, монголов и другие племена. Процесс тюркизации монголов Орды. Этническое «переплавление» в золотоордынском котле.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--lime);box-shadow:0 0 0 4px rgba(200,232,90,0.3)"></div>
+      <div class="tl-yr" style="color:var(--lime)">1456–1465 гг.</div>
+      <div class="tl-h" style="color:var(--lime)">Казахское ханство — оформление этноса</div>
+      <div class="tl-t">Джанибек и Гирей откочёвывают с подданными в Могулистан — рождение «казахов» как политической и этнической категории. К концу XV в. численность «казахов» достигает 1 млн человек. Оформление трёх жузов.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-yr">XVI–XVIII вв.</div>
+      <div class="tl-h">Расцвет и консолидация</div>
+      <div class="tl-t">Золотой век Касым-хана (расширение территории до 1 млн кв. км), «Касым ханның қасқа жолы» — первый казахский свод обычного права. Джунгарская угроза как катализатор консолидации казахской идентичности.</div>
+    </div>
+  </div>
+
+  <!-- Схема трёх жузов -->
+  <h3>Система трёх жузов</h3>
+  <p>Жуз (жүз — «сотня», «сторона»?) — основная социально-территориальная организация казахского общества. Каждый жуз включал определённые племена и занимал историческую территорию.</p>
+
+  <div class="dg">
+    <p class="dg-title">Структура трёх казахских жузов</p>
+    <svg viewBox="0 0 700 320" width="100%" style="max-width:700px">
+      <!-- Starший Zhuz -->
+      <rect x="20" y="30" width="200" height="260" rx="2" fill="rgba(162,196,72,0.08)" stroke="rgba(162,196,72,0.4)" stroke-width="1.5"/>
+      <text x="120" y="22" text-anchor="middle" fill="#a2c448" font-family="'Unbounded',sans-serif" font-size="7" letter-spacing="1">СТАРШИЙ ЖУЗ</text>
+      <text x="120" y="14" text-anchor="middle" fill="rgba(162,196,72,0.4)" font-family="'Noto Serif',serif" font-size="6">Ұлы жүз</text>
+      <text x="120" y="58" text-anchor="middle" fill="rgba(200,232,90,0.5)" font-family="'Noto Serif',serif" font-size="8" font-style="italic">Семиречье, Сырдарья</text>
+      <!-- tribes -->
+      <g font-family="'Noto Serif',serif" font-size="8.5" fill="rgba(232,234,212,0.7)">
+        <text x="120" y="88" text-anchor="middle">Үйсін</text>
+        <text x="120" y="108" text-anchor="middle">Дулат</text>
+        <text x="120" y="128" text-anchor="middle">Жалайыр</text>
+        <text x="120" y="148" text-anchor="middle">Қаңлы</text>
+        <text x="120" y="168" text-anchor="middle">Шапырашты</text>
+        <text x="120" y="188" text-anchor="middle">Ошақты</text>
+        <text x="120" y="208" text-anchor="middle">Сіргелі</text>
+        <text x="120" y="228" text-anchor="middle">Албан</text>
+        <text x="120" y="248" text-anchor="middle">Суан</text>
+        <text x="120" y="268" text-anchor="middle">Ысты</text>
+      </g>
+
+      <!-- Middle Zhuz -->
+      <rect x="250" y="30" width="200" height="260" rx="2" fill="rgba(212,168,50,0.08)" stroke="rgba(212,168,50,0.35)" stroke-width="1.5"/>
+      <text x="350" y="22" text-anchor="middle" fill="#d4a832" font-family="'Unbounded',sans-serif" font-size="7" letter-spacing="1">СРЕДНИЙ ЖУЗ</text>
+      <text x="350" y="14" text-anchor="middle" fill="rgba(212,168,50,0.4)" font-family="'Noto Serif',serif" font-size="6">Орта жүз</text>
+      <text x="350" y="58" text-anchor="middle" fill="rgba(212,168,50,0.5)" font-family="'Noto Serif',serif" font-size="8" font-style="italic">Центр. и Сев. Казахстан</text>
+      <g font-family="'Noto Serif',serif" font-size="8.5" fill="rgba(232,234,212,0.7)">
+        <text x="350" y="88" text-anchor="middle">Арғын</text>
+        <text x="350" y="108" text-anchor="middle">Найман</text>
+        <text x="350" y="128" text-anchor="middle">Қыпшақ</text>
+        <text x="350" y="148" text-anchor="middle">Керей</text>
+        <text x="350" y="168" text-anchor="middle">Уақ</text>
+        <text x="350" y="188" text-anchor="middle">Таракты</text>
+        <text x="350" y="208" text-anchor="middle">Қоңырат</text>
+      </g>
+
+      <!-- Junior Zhuz -->
+      <rect x="480" y="30" width="200" height="260" rx="2" fill="rgba(90,180,200,0.08)" stroke="rgba(90,180,200,0.35)" stroke-width="1.5"/>
+      <text x="580" y="22" text-anchor="middle" fill="#5ab4c8" font-family="'Unbounded',sans-serif" font-size="7" letter-spacing="1">МЛАДШИЙ ЖУЗ</text>
+      <text x="580" y="14" text-anchor="middle" fill="rgba(90,180,200,0.4)" font-family="'Noto Serif',serif" font-size="6">Кіші жүз</text>
+      <text x="580" y="58" text-anchor="middle" fill="rgba(90,180,200,0.5)" font-family="'Noto Serif',serif" font-size="8" font-style="italic">Западный Казахстан</text>
+      <g font-family="'Noto Serif',serif" font-size="8.5" fill="rgba(232,234,212,0.7)">
+        <text x="580" y="88" text-anchor="middle">Алшын</text>
+        <text x="580" y="108" text-anchor="middle">Байұлы</text>
+        <text x="580" y="128" text-anchor="middle">Жетіру</text>
+        <text x="580" y="148" text-anchor="middle">Табын</text>
+        <text x="580" y="168" text-anchor="middle">Тама</text>
+        <text x="580" y="188" text-anchor="middle">Кердері</text>
+        <text x="580" y="208" text-anchor="middle">Маңғыт</text>
+      </g>
+
+      <!-- Connecting bottom -->
+      <path d="M120,290 L350,308 L580,290" fill="none" stroke="rgba(162,196,72,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="350" y="320" text-anchor="middle" fill="rgba(162,196,72,0.4)" font-family="'Unbounded',sans-serif" font-size="7" letter-spacing="1">КАЗАХСКИЙ ЭТНОС</text>
+    </svg>
+  </div>
+
+  <h3>Факторы этнической консолидации</h3>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🐴</div>
+      <div class="card-h">Кочевой образ жизни</div>
+      <div class="card-t">Общая хозяйственно-культурная модель (скотоводческое кочевничество) объединяла разнородные племена в единую систему жизнеобеспечения.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📜</div>
+      <div class="card-h">Обычное право — Жеті Жарғы</div>
+      <div class="card-t">Свод законов Тауке-хана (к. XVII в.) упорядочил межплеменные отношения, создал общеказахскую правовую культуру.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🕌</div>
+      <div class="card-h">Ислам</div>
+      <div class="card-t">Принятый в XIV–XVI вв. ислам стал общей идеологической рамкой, дополнившей тенгрианские традиции. «Степной ислам» — синкретическая форма.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🗣️</div>
+      <div class="card-h">Общий язык и эпос</div>
+      <div class="card-t">Казахский язык и устная эпическая традиция (Қобыланды, Алпамыс, Ер Тарғын) формировали общее культурное пространство.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚔️</div>
+      <div class="card-h">Джунгарская угроза</div>
+      <div class="card-t">«Ақтабан шұбырынды» (Великое бедствие 1723–1727) — джунгарское нашествие — стало мощным катализатором общеказахского единства.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <div class="card-h">Шежіре — родословная</div>
+      <div class="card-t">Устная генеалогическая традиция соединяла отдельные роды в единое символическое целое, восходящее к общему легендарному предку.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ТЕМА 9: КОЧЕВАЯ ЦИВИЛИЗАЦИЯ -->
+<!-- ══════════════════════════════════════════ -->
+<section id="t9">
+<div class="container">
+  <p class="sec-tag">Семинар · Тема 9</p>
+  <h2>Кочевая цивилизация как ойкумена казахского этноса</h2>
+  <p class="sec-num">Семинарское занятие</p>
+  <p class="lead">Кочевничество — не «недоразвитое земледелие», а самостоятельная цивилизационная модель, оптимально адаптированная к условиям евразийской степи.</p>
+
+  <p>Понятие <mark>ойкумена</mark> (греч. οἰκουμένη — «обитаемый мир») в применении к кочевой цивилизации означает особое культурное, хозяйственное и ценностное пространство, в котором формировался и воспроизводился казахский этнос.</p>
+
+  <h3>Номадизм как цивилизационная модель</h3>
+  <div class="two-col">
+    <div>
+      <p>Классическая европоцентричная историография долго рассматривала кочевничество как промежуточный этап между «дикостью» и «цивилизацией». Современная наука отвергает эту иерархию: номадизм — это <mark>специализированная экономическая стратегия</mark>, возникшая как ответ на конкретные природно-климатические условия.</p>
+      <p>Ключевые работы Л.Н. Гумилёва, С.Е. Ажигали, А.Х. Маргулана, Н.Э. Масанова показали, что кочевники создали сложнейшие социальные, правовые и эстетические системы, не уступающие оседлым «высоким культурам».</p>
+    </div>
+    <div>
+      <blockquote>
+        Кочевая цивилизация — это не отсутствие цивилизации, а её особая форма, порождённая степью, конём и пастбищным скотоводством.
+        <cite>— Н.Э. Масанов, «Кочевая цивилизация казахов», 1995</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- Компоненты кочевой цивилизации -->
+  <div class="dg">
+    <p class="dg-title">Система компонентов кочевой цивилизации казахского этноса</p>
+    <svg viewBox="0 0 680 420" width="100%" style="max-width:680px">
+      <defs>
+        <marker id="arr2" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
+          <circle cx="2.5" cy="2.5" r="2" fill="rgba(162,196,72,0.4)"/>
+        </marker>
+      </defs>
+      <!-- Center -->
+      <ellipse cx="340" cy="210" rx="85" ry="55" fill="rgba(162,196,72,0.18)" stroke="#a2c448" stroke-width="1.5"/>
+      <text x="340" y="204" text-anchor="middle" fill="#c8e85a" font-family="'Unbounded',sans-serif" font-size="9" font-weight="500">КОЧЕВАЯ</text>
+      <text x="340" y="218" text-anchor="middle" fill="#c8e85a" font-family="'Unbounded',sans-serif" font-size="9" font-weight="500">ЦИВИЛИЗАЦИЯ</text>
+      <text x="340" y="234" text-anchor="middle" fill="rgba(200,232,90,0.5)" font-family="'Noto Serif',serif" font-size="8">ойкумена степи</text>
+
+      <!-- Nodes around -->
+      <!-- Top: Хозяйство -->
+      <ellipse cx="340" cy="60" rx="75" ry="34" fill="rgba(212,168,50,0.15)" stroke="rgba(212,168,50,0.4)" stroke-width="1"/>
+      <text x="340" y="55" text-anchor="middle" fill="#d4a832" font-family="'Unbounded',sans-serif" font-size="7.5" letter-spacing="0.5">ХОЗЯЙСТВО</text>
+      <text x="340" y="70" text-anchor="middle" fill="rgba(212,168,50,0.6)" font-family="'Noto Serif',serif" font-size="7">скотоводство, маршруты кочёвок</text>
+      <line x1="340" y1="94" x2="340" y2="155" stroke="rgba(162,196,72,0.25)" stroke-width="1.2"/>
+
+      <!-- Top-right: Жилище -->
+      <ellipse cx="555" cy="110" rx="80" ry="34" fill="rgba(90,180,200,0.1)" stroke="rgba(90,180,200,0.35)" stroke-width="1"/>
+      <text x="555" y="105" text-anchor="middle" fill="#5ab4c8" font-family="'Unbounded',sans-serif" font-size="7.5" letter-spacing="0.5">ЖИЛИЩЕ</text>
+      <text x="555" y="120" text-anchor="middle" fill="rgba(90,180,200,0.6)" font-family="'Noto Serif',serif" font-size="7">юрта (кигіз үй) — мобильный дом</text>
+      <line x1="475" y1="120" x2="425" y2="175" stroke="rgba(162,196,72,0.25)" stroke-width="1.2"/>
+
+      <!-- Right: Право -->
+      <ellipse cx="600" cy="210" rx="72" ry="34" fill="rgba(176,78,28,0.12)" stroke="rgba(176,78,28,0.35)" stroke-width="1"/>
+      <text x="600" y="205" text-anchor="middle" fill="#c87040" font-family="'Unbounded',sans-serif" font-size="7.5" letter-spacing="0.5">ПРАВО</text>
+      <text x="600" y="220" text-anchor="middle" fill="rgba(176,78,28,0.6)" font-family="'Noto Serif',serif" font-size="7">адат, жеті жарғы, бии</text>
+      <line x1="528" y1="210" x2="425" y2="210" stroke="rgba(162,196,72,0.25)" stroke-width="1.2"/>
+
+      <!-- Bottom-right: Искусство -->
+      <ellipse cx="555" cy="310" rx="78" ry="34" fill="rgba(90,120,180,0.12)" stroke="rgba(90,120,180,0.35)" stroke-width="1"/>
+      <text x="555" y="305" text-anchor="middle" fill="#8aA0d8" font-family="'Unbounded',sans-serif" font-size="7.5" letter-spacing="0.5">ИСКУССТВО</text>
+      <text x="555" y="320" text-anchor="middle" fill="rgba(90,120,180,0.6)" font-family="'Noto Serif',serif" font-size="7">прикладное, устная поэзия, музыка</text>
+      <line x1="477" y1="300" x2="425" y2="248" stroke="rgba(162,196,72,0.25)" stroke-width="1.2"/>
+
+      <!-- Bottom: Мировоззрение -->
+      <ellipse cx="340" cy="370" rx="80" ry="34" fill="rgba(162,196,72,0.1)" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <text x="340" y="365" text-anchor="middle" fill="#a2c448" font-family="'Unbounded',sans-serif" font-size="7.5" letter-spacing="0.5">МИРОВОЗЗРЕНИЕ</text>
+      <text x="340" y="380" text-anchor="middle" fill="rgba(162,196,72,0.5)" font-family="'Noto Serif',serif" font-size="7">тенгрианство, ислам, культ предков</text>
+      <line x1="340" y1="336" x2="340" y2="265" stroke="rgba(162,196,72,0.25)" stroke-width="1.2"/>
+
+      <!-- Bottom-left: Социальная -->
+      <ellipse cx="125" cy="310" rx="78" ry="34" fill="rgba(200,100,150,0.1)" stroke="rgba(200,100,150,0.3)" stroke-width="1"/>
+      <text x="125" y="305" text-anchor="middle" fill="#c878a8" font-family="'Unbounded',sans-serif" font-size="7.5" letter-spacing="0.5">СОЦИУМ</text>
+      <text x="125" y="320" text-anchor="middle" fill="rgba(200,100,150,0.5)" font-family="'Noto Serif',serif" font-size="7">жуз, ру, аул, батыр, би, жырау</text>
+      <line x1="203" y1="300" x2="256" y2="248" stroke="rgba(162,196,72,0.25)" stroke-width="1.2"/>
+
+      <!-- Left: Коммуникации -->
+      <ellipse cx="80" cy="210" rx="72" ry="34" fill="rgba(120,180,80,0.1)" stroke="rgba(120,180,80,0.3)" stroke-width="1"/>
+      <text x="80" y="205" text-anchor="middle" fill="#78c850" font-family="'Unbounded',sans-serif" font-size="7.5" letter-spacing="0.5">КОММУНИКАЦИИ</text>
+      <text x="80" y="220" text-anchor="middle" fill="rgba(120,180,80,0.5)" font-family="'Noto Serif',serif" font-size="7">торговые пути, Великий Шёлковый</text>
+      <line x1="152" y1="210" x2="255" y2="210" stroke="rgba(162,196,72,0.25)" stroke-width="1.2"/>
+
+      <!-- Top-left: Военная -->
+      <ellipse cx="125" cy="110" rx="78" ry="34" fill="rgba(180,60,60,0.1)" stroke="rgba(180,60,60,0.3)" stroke-width="1"/>
+      <text x="125" y="105" text-anchor="middle" fill="#c85858" font-family="'Unbounded',sans-serif" font-size="7.5" letter-spacing="0.5">ВОЕННАЯ ОРГ.</text>
+      <text x="125" y="120" text-anchor="middle" fill="rgba(180,60,60,0.5)" font-family="'Noto Serif',serif" font-size="7">дружина, ополчение, стратегия</text>
+      <line x1="203" y1="120" x2="257" y2="168" stroke="rgba(162,196,72,0.25)" stroke-width="1.2"/>
+    </svg>
+  </div>
+
+  <!-- Юрта как модель мироздания -->
+  <h3>Юрта: дом и модель Вселенной</h3>
+  <p>Юрта (қазақша: <mark>кигіз үй</mark> — войлочный дом) — уникальная архитектурная форма, оптимизированная под кочевой образ жизни. Она собирается и разбирается за несколько часов, выдерживает степные ветры и экстремальные температуры.</p>
+
+  <div class="dg">
+    <p class="dg-title">Символика юрты: пространство и смыслы</p>
+    <svg viewBox="0 0 600 280" width="100%" style="max-width:600px">
+      <!-- Yurt silhouette -->
+      <ellipse cx="300" cy="200" rx="160" ry="30" fill="rgba(162,196,72,0.08)" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <path d="M140,200 Q160,100 300,60 Q440,100 460,200" fill="rgba(162,196,72,0.06)" stroke="rgba(162,196,72,0.4)" stroke-width="1.5"/>
+      <!-- Shanyrak (top circle) -->
+      <circle cx="300" cy="65" r="28" fill="rgba(212,168,50,0.15)" stroke="rgba(212,168,50,0.6)" stroke-width="1.5"/>
+      <text x="300" y="61" text-anchor="middle" fill="#d4a832" font-family="'Unbounded',sans-serif" font-size="6.5" letter-spacing="1">ШАҢЫРАҚ</text>
+      <text x="300" y="75" text-anchor="middle" fill="rgba(212,168,50,0.7)" font-family="'Noto Serif',serif" font-size="7">символ рода</text>
+      <!-- Door -->
+      <rect x="272" y="162" width="56" height="38" rx="1" fill="rgba(162,196,72,0.1)" stroke="rgba(162,196,72,0.35)" stroke-width="1"/>
+      <text x="300" y="183" text-anchor="middle" fill="rgba(162,196,72,0.7)" font-family="'Unbounded',sans-serif" font-size="6">ЕСІК</text>
+      <text x="300" y="195" text-anchor="middle" fill="rgba(162,196,72,0.4)" font-family="'Noto Serif',serif" font-size="6">восток</text>
+
+      <!-- Annotations -->
+      <line x1="140" y1="200" x2="60" y2="220" stroke="rgba(162,196,72,0.2)" stroke-width="1"/>
+      <text x="50" y="215" text-anchor="middle" fill="rgba(232,234,212,0.5)" font-family="'Noto Serif',serif" font-size="8">Кереге</text>
+      <text x="50" y="228" text-anchor="middle" fill="rgba(232,234,212,0.3)" font-family="'Noto Serif',serif" font-size="7">решётч. основа</text>
+
+      <line x1="220" y1="115" x2="120" y2="135" stroke="rgba(162,196,72,0.2)" stroke-width="1"/>
+      <text x="80" y="130" text-anchor="middle" fill="rgba(232,234,212,0.5)" font-family="'Noto Serif',serif" font-size="8">Уық</text>
+      <text x="80" y="143" text-anchor="middle" fill="rgba(232,234,212,0.3)" font-family="'Noto Serif',serif" font-size="7">стропила-жерди</text>
+
+      <line x1="460" y1="200" x2="540" y2="220" stroke="rgba(162,196,72,0.2)" stroke-width="1"/>
+      <text x="555" y="215" text-anchor="middle" fill="rgba(232,234,212,0.5)" font-family="'Noto Serif',serif" font-size="8">Сырмақ</text>
+      <text x="555" y="228" text-anchor="middle" fill="rgba(232,234,212,0.3)" font-family="'Noto Serif',serif" font-size="7">войлочный ковёр</text>
+
+      <line x1="380" y1="115" x2="490" y2="135" stroke="rgba(162,196,72,0.2)" stroke-width="1"/>
+      <text x="528" y="130" text-anchor="middle" fill="rgba(232,234,212,0.5)" font-family="'Noto Serif',serif" font-size="8">Тор</text>
+      <text x="528" y="143" text-anchor="middle" fill="rgba(232,234,212,0.3)" font-family="'Noto Serif',serif" font-size="7">почётное место</text>
+
+      <!-- Center meaning -->
+      <text x="300" y="240" text-anchor="middle" fill="rgba(162,196,72,0.35)" font-family="'Unbounded',sans-serif" font-size="6" letter-spacing="1">ОТ БАСЫ — очаг — центр мироздания</text>
+    </svg>
+  </div>
+
+  <!-- Вопросы семинара -->
+  <h3>Вопросы для семинарского обсуждения</h3>
+  <div class="pills">
+    <span class="pill">Является ли кочевничество цивилизацией?</span>
+    <span class="pill">Номадизм vs. оседлость: конфликт или симбиоз?</span>
+    <span class="pill">Роль скотоводства в экономике степи</span>
+    <span class="pill">Кочевничество и экология: устойчивое хозяйство?</span>
+    <span class="pill">Великий Шёлковый путь и кочевники</span>
+    <span class="pill">Тенгрианство как мировоззрение</span>
+    <span class="pill">Устная традиция: жырау и ақын</span>
+    <span class="pill">Деседентаризация: причины и последствия</span>
+  </div>
+
+  <table class="tbl" style="margin-top:2.5rem">
+    <thead>
+      <tr>
+        <th>Параметр</th>
+        <th>Кочевое общество</th>
+        <th>Оседлое общество</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Основа хозяйства</td>
+        <td>Пастбищное скотоводство, мобильность</td>
+        <td>Земледелие, стационарность</td>
+      </tr>
+      <tr>
+        <td>Тип жилища</td>
+        <td>Разборное (юрта) — мобильная архитектура</td>
+        <td>Стационарное — камень, дерево, кирпич</td>
+      </tr>
+      <tr>
+        <td>Социальная структура</td>
+        <td>Родо-племенная: аул, ру, жуз</td>
+        <td>Территориальная: деревня, город, государство</td>
+      </tr>
+      <tr>
+        <td>Накопление богатства</td>
+        <td>Скот как капитал — мобильный, живой</td>
+        <td>Земля, здания, запасы зерна</td>
+      </tr>
+      <tr>
+        <td>Право</td>
+        <td>Устное обычное право (адат), биев суд</td>
+        <td>Письменное кодифицированное право</td>
+      </tr>
+      <tr>
+        <td>Культурная память</td>
+        <td>Устная — эпос, шежіре, жырау</td>
+        <td>Письменная — хроники, архивы</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ТЕМА 10: СОВРЕМЕННАЯ ЭТНОЛОГИЯ КАЗАХСТАНА -->
+<!-- ══════════════════════════════════════════ -->
+<section id="t10">
+<div class="container">
+  <p class="sec-tag">Семинар · Тема 10</p>
+  <h2>Современная казахстанская этнология</h2>
+  <p class="sec-num">Семинарское занятие</p>
+  <p class="lead">Казахстан — одно из наиболее многонациональных государств постсоветского пространства. Современная этнология республики изучает формирование полиэтнического общества, национальную идентичность и межэтнические отношения.</p>
+
+  <!-- Этнический состав -->
+  <h3>Этнический состав Казахстана</h3>
+  <p>По данным переписи 2021 года, в Казахстане проживает более <mark>130 этнических групп</mark>. Демографический состав страны существенно изменился за годы независимости: доля казахов выросла с 40% (1989) до более чем 70% (2021).</p>
+
+  <div class="dg">
+    <p class="dg-title">Динамика изменения доли основных этносов Казахстана, 1989–2021 гг. (%)</p>
+    <div style="margin-bottom:0.5rem">
+      <div class="sbr">
+        <div class="sbl">Казахи 1989</div>
+        <div class="sbtr">
+          <div class="sbs" style="width:40%;background:var(--green);color:#000">40%</div>
+        </div>
+      </div>
+      <div class="sbr">
+        <div class="sbl">Казахи 2021</div>
+        <div class="sbtr">
+          <div class="sbs" style="width:70%;background:var(--lime);color:#000">70%</div>
+        </div>
+      </div>
+      <div class="sbr">
+        <div class="sbl">Русские 1989</div>
+        <div class="sbtr">
+          <div class="sbs" style="width:38%;background:#5ab4c8">38%</div>
+        </div>
+      </div>
+      <div class="sbr">
+        <div class="sbl">Русские 2021</div>
+        <div class="sbtr">
+          <div class="sbs" style="width:15%;background:#2a6a7a">15%</div>
+        </div>
+      </div>
+      <div class="sbr">
+        <div class="sbl">Узбеки</div>
+        <div class="sbtr">
+          <div class="sbs" style="width:3%;background:#d4a832">3%</div>
+          <div class="sbs" style="width:10%;background:rgba(0,0,0,0)"></div>
+        </div>
+      </div>
+      <div class="sbr">
+        <div class="sbl">Уйгуры</div>
+        <div class="sbtr">
+          <div class="sbs" style="width:2.5%;background:#c85ab4">2.5%</div>
+        </div>
+      </div>
+      <div class="sbr">
+        <div class="sbl">Прочие</div>
+        <div class="sbtr">
+          <div class="sbs" style="width:9.5%;background:#555">~9.5%</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.72rem;color:var(--muted);margin-top:0.5rem">* Источники: Переписи населения СССР 1989 г. и Казахстана 2021 г.</p>
+  </div>
+
+  <!-- Направления этнологии -->
+  <h3>Ключевые направления казахстанской этнологии</h3>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🔬</div>
+      <div class="card-h">Этногенетика</div>
+      <div class="card-t">ДНК-исследования популяций Казахстана. Проект «Казахстан ДНК» и международные исследования Y-хромосомных гаплогрупп. Генетическое подтверждение этнической истории.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <div class="card-h">Этническая идентичность</div>
+      <div class="card-t">Изучение «казахскости» в условиях глобализации. Роль языка, религии, шежіре в самоидентификации. «Оралман» — казахская диаспора, вернувшаяся на родину.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤝</div>
+      <div class="card-h">Межэтнические отношения</div>
+      <div class="card-t">Ассамблея народа Казахстана (АНК) как институт этнической политики. Модель «казахстанской идентичности» — единство разнообразия.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏛️</div>
+      <div class="card-h">Политика памяти</div>
+      <div class="card-t">«Мәдени мұра» (Культурное наследие) — госпрограмма по сохранению и актуализации казахского историко-культурного наследия (с 2004 г.).</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <div class="card-h">Академическая этнология</div>
+      <div class="card-t">Институт истории и этнологии им. Ч.Ч. Валиханова. Издание многотомной «Истории Казахстана». Дискуссия о «Казахской цивилизации».</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌍</div>
+      <div class="card-h">Диаспорные исследования</div>
+      <div class="card-t">Казахская диаспора: Китай (ок. 1,5 млн), Монголия, Россия, Германия, Турция. Процесс репатриации оралманов — культурная и социальная реинтеграция.</div>
+    </div>
+  </div>
+
+  <!-- Институциональная схема -->
+  <div class="dg">
+    <p class="dg-title">Институциональная структура этнической политики Казахстана</p>
+    <svg viewBox="0 0 680 300" width="100%" style="max-width:680px">
+      <!-- Top -->
+      <rect x="240" y="10" width="200" height="46" rx="2" fill="rgba(162,196,72,0.15)" stroke="#a2c448" stroke-width="1.5"/>
+      <text x="340" y="31" text-anchor="middle" fill="#c8e85a" font-family="'Unbounded',sans-serif" font-size="7.5" font-weight="500" letter-spacing="0.5">ПРЕЗИДЕНТ РК</text>
+      <text x="340" y="47" text-anchor="middle" fill="rgba(200,232,90,0.5)" font-family="'Noto Serif',serif" font-size="8">этническая политика</text>
+
+      <line x1="340" y1="56" x2="340" y2="80" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <line x1="120" y1="80" x2="560" y2="80" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+
+      <!-- Level 2 -->
+      <line x1="120" y1="80" x2="120" y2="104" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <line x1="340" y1="80" x2="340" y2="104" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <line x1="560" y1="80" x2="560" y2="104" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+
+      <rect x="50" y="104" width="140" height="50" rx="2" fill="rgba(212,168,50,0.12)" stroke="rgba(212,168,50,0.35)" stroke-width="1"/>
+      <text x="120" y="122" text-anchor="middle" fill="#d4a832" font-family="'Unbounded',sans-serif" font-size="6.5" letter-spacing="0.5">АНК</text>
+      <text x="120" y="136" text-anchor="middle" fill="rgba(212,168,50,0.6)" font-family="'Noto Serif',serif" font-size="7">Ассамблея народа</text>
+      <text x="120" y="148" text-anchor="middle" fill="rgba(212,168,50,0.6)" font-family="'Noto Serif',serif" font-size="7">Казахстана</text>
+
+      <rect x="265" y="104" width="150" height="50" rx="2" fill="rgba(90,180,200,0.1)" stroke="rgba(90,180,200,0.35)" stroke-width="1"/>
+      <text x="340" y="122" text-anchor="middle" fill="#5ab4c8" font-family="'Unbounded',sans-serif" font-size="6.5" letter-spacing="0.5">МИН. КУЛЬТУРЫ</text>
+      <text x="340" y="136" text-anchor="middle" fill="rgba(90,180,200,0.6)" font-family="'Noto Serif',serif" font-size="7">языковая политика,</text>
+      <text x="340" y="148" text-anchor="middle" fill="rgba(90,180,200,0.6)" font-family="'Noto Serif',serif" font-size="7">культурное наследие</text>
+
+      <rect x="490" y="104" width="140" height="50" rx="2" fill="rgba(162,196,72,0.1)" stroke="rgba(162,196,72,0.3)" stroke-width="1"/>
+      <text x="560" y="122" text-anchor="middle" fill="#a2c448" font-family="'Unbounded',sans-serif" font-size="6.5" letter-spacing="0.5">ИН-Т ВАЛИХАНОВА</text>
+      <text x="560" y="136" text-anchor="middle" fill="rgba(162,196,72,0.6)" font-family="'Noto Serif',serif" font-size="7">академическая</text>
+      <text x="560" y="148" text-anchor="middle" fill="rgba(162,196,72,0.6)" font-family="'Noto Serif',serif" font-size="7">этнология</text>
+
+      <!-- Level 3 -->
+      <line x1="120" y1="154" x2="120" y2="185" stroke="rgba(162,196,72,0.2)" stroke-width="1"/>
+      <line x1="340" y1="154" x2="340" y2="185" stroke="rgba(162,196,72,0.2)" stroke-width="1"/>
+      <line x1="560" y1="154" x2="560" y2="185" stroke="rgba(162,196,72,0.2)" stroke-width="1"/>
+
+      <rect x="40" y="185" width="160" height="44" rx="2" fill="rgba(212,168,50,0.07)" stroke="rgba(212,168,50,0.2)"/>
+      <text x="120" y="200" text-anchor="middle" fill="rgba(212,168,50,0.7)" font-family="'Unbounded',sans-serif" font-size="6" letter-spacing="0.5">130 ЭТНОКУЛЬТ.</text>
+      <text x="120" y="213" text-anchor="middle" fill="rgba(212,168,50,0.7)" font-family="'Unbounded',sans-serif" font-size="6" letter-spacing="0.5">ЦЕНТРОВ</text>
+      <text x="120" y="224" text-anchor="middle" fill="rgba(212,168,50,0.4)" font-family="'Noto Serif',serif" font-size="7">в регионах</text>
+
+      <rect x="260" y="185" width="160" height="44" rx="2" fill="rgba(90,180,200,0.07)" stroke="rgba(90,180,200,0.2)"/>
+      <text x="340" y="200" text-anchor="middle" fill="rgba(90,180,200,0.7)" font-family="'Unbounded',sans-serif" font-size="6" letter-spacing="0.5">ТРИЛИНГВИЗМ</text>
+      <text x="340" y="213" text-anchor="middle" fill="rgba(90,180,200,0.5)" font-family="'Noto Serif',serif" font-size="7">казахский + русский + английский</text>
+
+      <rect x="480" y="185" width="160" height="44" rx="2" fill="rgba(162,196,72,0.07)" stroke="rgba(162,196,72,0.2)"/>
+      <text x="560" y="200" text-anchor="middle" fill="rgba(162,196,72,0.7)" font-family="'Unbounded',sans-serif" font-size="6" letter-spacing="0.5">МӘДЕНИ МҰРА</text>
+      <text x="560" y="213" text-anchor="middle" fill="rgba(162,196,72,0.5)" font-family="'Noto Serif',serif" font-size="7">программа культ. наследия</text>
+
+      <!-- Bottom line -->
+      <line x1="40" y1="262" x2="640" y2="262" stroke="rgba(162,196,72,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+      <text x="340" y="280" text-anchor="middle" fill="rgba(162,196,72,0.3)" font-family="'Unbounded',sans-serif" font-size="6.5" letter-spacing="1">«ҚАЗАҚСТАНДЫҚ БІРЛІК» — казахстанская идентичность</text>
+    </svg>
+  </div>
+
+  <!-- Языковая политика -->
+  <h3>Языковая политика: от кириллицы к латинице</h3>
+  <div class="two-col">
+    <div>
+      <p>В 2017 году Казахстан начал переход казахского языка с кириллицы на латинский алфавит. Это решение имеет глубокий символический смысл: разрыв с советским культурным наследием, сближение с тюркским миром и молодёжной цифровой культурой.</p>
+      <p>Параллельно действует программа <mark>«Трилингвизм»</mark>: государственный казахский язык — официальный русский — английский как язык интеграции в глобальную экономику.</p>
+    </div>
+    <div>
+      <div class="dg" style="margin:0">
+        <p class="dg-title">История алфавитов казахского языка</p>
+        <div class="flow" style="flex-direction:column;gap:0">
+          <div class="fb gold" style="text-align:left">До 1929 — <strong>Арабская графика</strong><sub>~ 1000 лет использования в регионе</sub></div>
+          <div class="fa" style="justify-content:center">↓</div>
+          <div class="fb sky" style="text-align:left">1929–1940 — <strong>Латиница (Яналиф)</strong><sub>советская латинизация тюркских народов</sub></div>
+          <div class="fa" style="justify-content:center">↓</div>
+          <div class="fb" style="text-align:left;background:rgba(90,180,200,0.1)">1940–2017 — <strong>Кириллица</strong><sub>советская унификация алфавитов</sub></div>
+          <div class="fa" style="justify-content:center">↓</div>
+          <div class="fb g" style="text-align:left">2017–н.в. — <strong>Новая латиница</strong><sub>«Qazaq tili» — курс на тюркское единство</sub></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Вопросы семинара -->
+  <h3>Вопросы для семинарского обсуждения</h3>
+  <div class="pills">
+    <span class="pill">Что такое «казахстанская идентичность»?</span>
+    <span class="pill">АНК: инструмент диалога или контроля?</span>
+    <span class="pill">Оралман: культурная реинтеграция</span>
+    <span class="pill">Переход на латиницу: за и против</span>
+    <span class="pill">Трилингвизм — реальность или программа?</span>
+    <span class="pill">Этническое vs. гражданское самосознание</span>
+    <span class="pill">Казахская диаспора в Китае и Монголии</span>
+    <span class="pill">Роль ислама в современной идентичности</span>
+  </div>
+
+  <table class="tbl" style="margin-top:2rem">
+    <thead>
+      <tr>
+        <th>Учёный</th>
+        <th>Вклад</th>
+        <th>Ключевые работы</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Ч.Ч. Валиханов</strong> (1835–1865)</td>
+        <td>Основоположник казахской этнографии; исследования культуры, фольклора и истории казахов и народов Центральной Азии</td>
+        <td>«О кочевниках», «Записки о киргизах»</td>
+      </tr>
+      <tr>
+        <td><strong>А.Х. Маргулан</strong> (1904–1985)</td>
+        <td>Фундаментальные исследования материальной культуры, искусства и археологии казахской степи</td>
+        <td>«Казахское народное прикладное искусство»</td>
+      </tr>
+      <tr>
+        <td><strong>Н.Э. Масанов</strong> (1954–2006)</td>
+        <td>Теория кочевой цивилизации; критический анализ номадизма как самостоятельной социальной системы</td>
+        <td>«Кочевая цивилизация казахов» (1995)</td>
+      </tr>
+      <tr>
+        <td><strong>М.С. Муканов</strong> (1924–1999)</td>
+        <td>Этнический состав и расселение казахов; систематизация жузовой структуры</td>
+        <td>«Этнический состав и расселение казахов»</td>
+      </tr>
+      <tr>
+        <td><strong>С.Е. Ажигали</strong> (р. 1956)</td>
+        <td>Архитектура и погребальная культура кочевников; этнокультурные контакты</td>
+        <td>«Архитектура кочевников» (2002)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- SOURCES -->
+<section id="sources">
+<div class="container">
+  <p class="sec-tag">Библиография</p>
+  <h2>Источники и литература</h2>
+  <p style="color:rgba(232,234,212,0.5)">Основная и дополнительная литература по темам 7–10</p>
+
+  <ul class="src-list">
+    <li><div><em>По теме 7 — Мировые языки и классификация:</em></div></li>
+    <li><div><strong>Реформатский А.А.</strong> Введение в языковедение. — М.: Просвещение, 1967 (и переиздания). — Классическое русскоязычное введение в лингвистику.</div></li>
+    <li><div><strong>Гринберг Дж.</strong> Антропологическая лингвистика: вводный курс / пер. с англ. — М.: УРСС, 2004. — Типология и универсалии языков.</div></li>
+    <li><div><strong>Crystal D.</strong> The Cambridge Encyclopedia of Language. — Cambridge: Cambridge University Press, 2010. — Энциклопедический обзор языков мира.</div></li>
+    <li><div><strong>Баскаков Н.А.</strong> Введение в изучение тюркских языков. — М.: Высшая школа, 1969. — Классификация и история тюркских языков.</div></li>
+    <li><div><strong>Johanson L., Csató É. (eds.).</strong> The Turkic Languages. — London: Routledge, 1998. — Современное академическое описание тюркской семьи.</div></li>
+    <li><div><strong>Comrie B.</strong> Language Universals and Linguistic Typology. — Chicago: University of Chicago Press, 1981. — Типологическая классификация языков.</div></li>
+    <li><div><em>По теме 8 — Казахский этнос:</em></div></li>
+    <li><div><strong>Кляшторный С.Г., Султанов Т.И.</strong> Казахстан. Летопись трёх тысячелетий. — Алма-Ата: Рауан, 1992. — Фундаментальная история Казахстана с древности до нового времени.</div></li>
+    <li><div><strong>Аджи М.</strong> Тюрки и мир. Сокровенная история. — М.: АСТ, 2011. — Популярная, дискуссионная работа о тюркской истории.</div></li>
+    <li><div><strong>История Казахстана</strong> (в 5-ти томах). — Алматы: Атамұра, 1996–2010. — Академическое издание, охватывающее всю историю страны.</div></li>
+    <li><div><strong>Кумеков Б.Е.</strong> Государство кимаков IX–XI вв. по арабским источникам. — Алма-Ата: Наука, 1972. — Предыстория казахских племён.</div></li>
+    <li><div><strong>Сулейменов О.</strong> Аз и Я. — Алма-Ата: Жазушы, 1975. — Спорная, но влиятельная работа о тюркско-славянских культурных связях.</div></li>
+    <li><div><em>По теме 9 — Кочевая цивилизация:</em></div></li>
+    <li><div><strong>Масанов Н.Э.</strong> Кочевая цивилизация казахов: основы жизнедеятельности номадного общества. — Алматы–Москва: Горизонт, 1995. — Ключевая работа по теории казахского номадизма.</div></li>
+    <li><div><strong>Гумилёв Л.Н.</strong> Древние тюрки. — М.: Наука, 1967. — Классическое исследование истории и культуры тюркских кочевников.</div></li>
+    <li><div><strong>Khazanov A.M.</strong> Nomads and the Outside World. — Madison: University of Wisconsin Press, 1994. — Сравнительная социология номадизма.</div></li>
+    <li><div><strong>Ажигали С.Е.</strong> Архитектура кочевников — феномен истории и культуры Евразии. — Алматы: Ғылым, 2002. — Материальная культура номадов.</div></li>
+    <li><div><strong>Толеубаев А.Т.</strong> Реликты доисламских верований в семейной обрядности казахов. — Алматы: Ғылым, 1991. — Тенгрианство и религиозная культура.</div></li>
+    <li><div><em>По теме 10 — Современная этнология:</em></div></li>
+    <li><div><strong>Аканов К., Бурханов А.</strong> Этнокультурная политика Казахстана. — Алматы, 2018. — Современная государственная этническая политика.</div></li>
+    <li><div><strong>Dave B.</strong> Kazakhstan: Ethnicity, Language and Power. — London: Routledge, 2007. — Этническая политика и идентичность в постсоветском Казахстане.</div></li>
+    <li><div><strong>Сыроежкин К.Л.</strong> Казахи в КНР: очерки социально-экономического развития. — Алматы: Дайк-пресс, 2003. — Казахская диаспора в Китае.</div></li>
+    <li><div><strong>Валиханов Ч.Ч.</strong> Собрание сочинений в 5 томах. — Алма-Ата: Главная редакция Казахской советской энциклопедии, 1984–1985. — Труды основоположника казахской этнографии.</div></li>
+    <li><div><strong>Официальный сайт Ассамблеи народа Казахстана:</strong> assembly.kz — актуальные данные о межэтнической политике республики.</div></li>
+  </ul>
+</div>
+</section>
+
+<footer>
+  Темы 7–10 &nbsp;·&nbsp; Казахская этнология и мировые языки &nbsp;·&nbsp; Учебный сайт
+</footer>
+
+<script>
+const tls = document.querySelectorAll('.tl-item');
+const obs = new IntersectionObserver(e => {
+  e.forEach(i => { if(i.isIntersecting) i.target.classList.add('vis') });
+}, { threshold: 0.12 });
+tls.forEach(t => obs.observe(t));
+</script>
+</body>
+</html>
