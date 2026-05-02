@@ -1090,7 +1090,7 @@ function updateProgress(screen) {
   dots.innerHTML = '';
   for (let i = 0; i < 12; i++) {
     const d = document.createElement('div');
-    const monthScreen = i + 2;
+    const monthScreen = i + 2; // s2=месяц1 ... s13=месяц12
     d.className = 'mdot' + (monthScreen < screen ? ' done' : monthScreen === screen ? ' active' : '');
     dots.appendChild(d);
   }
@@ -1112,6 +1112,7 @@ function startGame() {
   // Build month screens
   buildMonthScreens();
   showScreen(2);
+  renderMonth(0);
 }
 
 function buildMonthScreens() {
@@ -1265,8 +1266,9 @@ function nextMonth(mIdx) {
 
   if (mIdx < 11) {
     state.balance = state.income;
-    showScreen(mIdx + 3);
-    renderMonth(mIdx + 1);
+    const nextM = mIdx + 1;
+    showScreen(nextM + 2); // месяц 0 → s2, месяц 1 → s3, ...
+    renderMonth(nextM);
   } else {
     showScreen(14);
     renderResult();
@@ -1384,6 +1386,7 @@ function restart() {
   document.getElementById('goal').value = '';
   document.getElementById('incomeSlider').value = 30000;
   document.getElementById('goalSlider').value = 200000;
+  document.getElementById('monthScreensContainer').innerHTML = '';
   updateIncome(); updateGoal();
   showScreen(1);
 }
